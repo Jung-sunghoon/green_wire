@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useAuthStore } from "@/store/auth-store";
 import apiClient from "@/lib/api-client";
 import { Card } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
 
-export default function KakaoCallbackPage() {
+function KakaoCallbackContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { fetchUser } = useAuthStore();
@@ -104,5 +104,28 @@ export default function KakaoCallbackPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <Card className="w-full max-w-md p-8">
+        <div className="flex flex-col items-center space-y-4">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <div className="text-center">
+            <h2 className="text-lg font-semibold">로딩 중...</h2>
+          </div>
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+export default function KakaoCallbackPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <KakaoCallbackContent />
+    </Suspense>
   );
 }
