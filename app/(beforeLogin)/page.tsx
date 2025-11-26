@@ -11,34 +11,7 @@ export default function Home() {
     const element = document.getElementById(sectionId);
     if (!element) return;
 
-    const headerOffset = 64;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    const startPosition = window.pageYOffset;
-    const distance = offsetPosition - startPosition;
-    const duration = 1000; // 1초
-    let start: number | null = null;
-
-    const easeInOutCubic = (t: number): number => {
-      return t < 0.5
-        ? 4 * t * t * t
-        : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    };
-
-    const animation = (currentTime: number) => {
-      if (start === null) start = currentTime;
-      const timeElapsed = currentTime - start;
-      const progress = Math.min(timeElapsed / duration, 1);
-      const ease = easeInOutCubic(progress);
-
-      window.scrollTo(0, startPosition + distance * ease);
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation);
-      }
-    };
-
-    requestAnimationFrame(animation);
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   return (
