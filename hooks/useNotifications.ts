@@ -31,7 +31,9 @@ export function useNotifications() {
     const connect = () => {
       try {
         // SSE 연결 - HttpOnly 쿠키 기반 인증 사용
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+        // 프로덕션: 빈 문자열 → 상대 경로 → rewrites 프록시 사용
+        // 개발: http://localhost:8000 → 직접 연결
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? '';
         const url = `${baseUrl}/api/v1/notifications/stream`;
 
         // EventSourcePolyfill로 쿠키 자동 전송 (withCredentials 지원)
