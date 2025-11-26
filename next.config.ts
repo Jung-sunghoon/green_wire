@@ -99,6 +99,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  // API 프록시 (크로스 도메인 쿠키 문제 해결)
+  async rewrites() {
+    const backendUrl = process.env.BACKEND_URL || "https://green-wire-backend-1065273606318.asia-northeast1.run.app";
+    return [
+      {
+        source: "/api/:path*",
+        destination: `${backendUrl}/api/:path*`,
+      },
+    ];
+  },
 };
 
 export default withBundleAnalyzer(nextConfig);

@@ -8,8 +8,11 @@ class ApiClient {
   private isAuthenticated: boolean = false;
 
   constructor() {
+    // 프로덕션: 빈 문자열 → 상대 경로 → rewrites 프록시
+    // 개발: http://localhost:8000 → 직접 연결
+    const baseURL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
     this.client = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000',
+      baseURL,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -59,9 +62,10 @@ class ApiClient {
     }
 
     // HttpOnly 쿠키 기반: 쿠키가 자동으로 전송됨
+    const baseURL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:8000';
     this.refreshPromise = axios
       .post(
-        `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/api/v2/auth/refresh`,
+        `${baseURL}/api/v2/auth/refresh`,
         {}, // body 비움 - 쿠키에서 refresh_token 읽음
         {
           headers: {
