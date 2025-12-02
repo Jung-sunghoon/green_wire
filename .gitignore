@@ -49,6 +49,7 @@ jest-results.json
 .env.test.local
 .env.production.local
 .env*.local
+.env.production
 
 # ===================
 # IDE / Editor
@@ -126,3 +127,5 @@ temp/
 .cache/
 .eslintcache
 .stylelintcache
+
+plan
