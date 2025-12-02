@@ -1,109 +1,174 @@
+import { TrendingUp, TrendingDown, Minus, Languages, Bell } from "lucide-react";
+
 export default function FeaturesSection() {
   return (
-    <section className="py-16 md:py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
-            투자에 필요한 모든 기능
+    <section className="py-20 md:py-32 px-6 bg-white dark:bg-gw-black">
+      <div className="max-w-4xl mx-auto">
+        {/* 섹션 헤더 */}
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gw-black dark:text-white">
+            복잡한 건 빼고, 핵심만
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            실시간 뉴스 분석부터 AI 리포트까지
+          <p className="text-lg text-gw-gray-600 dark:text-gw-gray-400">
+            미국 주식 투자에 꼭 필요한 3가지
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Card 1: 감정 분석 (Large - spans 2 rows) */}
-          <div className="md:row-span-2 p-8 rounded-2xl bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700/50 hover:-translate-y-1 hover:border-[#00a63e]/30 hover:shadow-[0_0_40px_rgba(0,166,62,0.1)] transition-all duration-300">
-            <span className="inline-block px-3 py-1 bg-[#00a63e]/10 text-[#00a63e] rounded-full text-xs font-medium mb-4">
-              핵심 기능
-            </span>
-            <h3 className="text-2xl font-semibold mb-2">
-              &ldquo;이 뉴스, 호재야 악재야?&rdquo;
-            </h3>
-            <p className="text-[#00a63e] text-xl font-semibold mb-4">
-              AI가 감정을 분석해드려요
-            </p>
-            <p className="text-zinc-600 dark:text-zinc-400 mb-6">
-              FinBERT AI가 뉴스를 긍정, 중립, 부정으로 분석합니다.
-            </p>
+        {/* 기능 목록 - Editorial 스타일 */}
+        <div className="space-y-20 md:space-y-28">
+          {/* 기능 1: 감정 분석 */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div>
+              <span className="text-sm font-medium text-gw-green mb-4 block">
+                01 — 긍정/부정 분석
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gw-black dark:text-white">
+                이 뉴스가 내 종목에
+                <br />
+                좋은 건지 나쁜 건지
+              </h3>
+              <p className="text-gw-gray-600 dark:text-gw-gray-400 leading-relaxed">
+                AI가 뉴스를 읽고 긍정, 부정, 중립으로 분류합니다. 어려운 영어
+                기사를 읽지 않아도, 한눈에 투자 판단을 내릴 수 있어요.
+              </p>
+            </div>
 
-            {/* Sentiment UI */}
-            <div className="bg-zinc-100 dark:bg-zinc-800/50 rounded-xl p-5 space-y-3">
-              <div className="flex items-center justify-between p-3 bg-white dark:bg-zinc-900/50 rounded-lg">
-                <span className="text-sm font-medium">
+            {/* 감정 분석 미니 데모 */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between p-4 bg-gw-gray-50 dark:bg-gw-gray-900 border border-gw-gray-200 dark:border-gw-gray-700 rounded-xl">
+                <span className="text-sm font-medium text-gw-black dark:text-white">
                   NVIDIA, 데이터센터 매출 예상치 상회
                 </span>
-                <span className="px-3 py-1 bg-[#00a63e]/10 text-[#00a63e] text-sm font-semibold rounded-full">
+                <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 bg-gw-green/10 text-gw-green text-sm font-medium rounded-full">
+                  <TrendingUp className="w-4 h-4" />
                   긍정
                 </span>
               </div>
-              <div className="flex items-center justify-between p-3 bg-white dark:bg-zinc-900/50 rounded-lg">
-                <span className="text-sm font-medium">
+              <div className="flex items-center justify-between p-4 bg-gw-gray-50 dark:bg-gw-gray-900 border border-gw-gray-200 dark:border-gw-gray-700 rounded-xl">
+                <span className="text-sm font-medium text-gw-black dark:text-white">
+                  애플, 정기 배당금 동결 발표
+                </span>
+                <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 bg-gw-gray-200 dark:bg-gw-gray-700 text-gw-gray-600 dark:text-gw-gray-400 text-sm font-medium rounded-full">
+                  <Minus className="w-4 h-4" />
+                  중립
+                </span>
+              </div>
+              <div className="flex items-center justify-between p-4 bg-gw-gray-50 dark:bg-gw-gray-900 border border-gw-gray-200 dark:border-gw-gray-700 rounded-xl">
+                <span className="text-sm font-medium text-gw-black dark:text-white">
                   테슬라, 리콜 발표로 주가 하락
                 </span>
-                <span className="px-3 py-1 bg-red-500/10 text-red-500 text-sm font-semibold rounded-full">
+                <span className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1 bg-gw-danger/10 text-gw-danger text-sm font-medium rounded-full">
+                  <TrendingDown className="w-4 h-4" />
                   부정
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Card 2: 한국어 번역 */}
-          <div className="p-6 rounded-2xl bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700/50 hover:-translate-y-1 hover:border-[#00a63e]/30 hover:shadow-[0_0_40px_rgba(0,166,62,0.1)] transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2">
-              &ldquo;영어 뉴스?&rdquo;
-            </h3>
-            <p className="text-[#00a63e] text-lg font-semibold mb-3">
-              한국어로 읽으세요
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              원문의 뉘앙스를 살린 자연스러운 번역. GPT-4가 금융 전문 용어를
-              정확하게 번역합니다.
-            </p>
-          </div>
+          {/* 기능 2: 한국어 번역 */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="md:order-2">
+              <span className="text-sm font-medium text-gw-green mb-4 block">
+                02 — 한국어 번역
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gw-black dark:text-white">
+                영어 뉴스?
+                <br />
+                한국어로 읽으세요
+              </h3>
+              <p className="text-gw-gray-600 dark:text-gw-gray-400 leading-relaxed">
+                원문의 뉘앙스를 살린 자연스러운 번역. 금융 전문 용어도 정확하게
+                번역해서 전달합니다.
+              </p>
+            </div>
 
-          {/* Card 3: 차트 통합 */}
-          <div className="p-6 rounded-2xl bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700/50 hover:-translate-y-1 hover:border-[#00a63e]/30 hover:shadow-[0_0_40px_rgba(0,166,62,0.1)] transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-2">
-              &ldquo;뉴스 읽다가 차트 확인하려고&rdquo;
-            </h3>
-            <p className="text-[#00a63e] text-lg font-semibold mb-3">
-              앱 바꾸지 마세요
-            </p>
-            <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              TradingView 차트가 바로 옆에. 뉴스와 차트를 한 화면에서
-              확인하세요.
-            </p>
-          </div>
-
-          {/* Card 4: 실시간 알림 (Wide) */}
-          <div className="md:col-span-2 p-6 rounded-2xl bg-white/80 dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-700/50 hover:-translate-y-1 hover:border-[#00a63e]/30 hover:shadow-[0_0_40px_rgba(0,166,62,0.1)] transition-all duration-300">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">
-                  &ldquo;TSLA 뉴스 나오면&rdquo;
-                </h3>
-                <p className="text-[#00a63e] text-lg font-semibold mb-2">
-                  바로 알려드릴게요
-                </p>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                  관심 종목 등록하면 중요 뉴스만 실시간 알림. 노이즈는
-                  걸러드립니다.
-                </p>
+            {/* 번역 미니 데모 */}
+            <div className="md:order-1 p-6 bg-gw-gray-50 dark:bg-gw-gray-900 border border-gw-gray-200 dark:border-gw-gray-700 rounded-xl">
+              <div className="flex items-center gap-2 mb-4">
+                <Languages className="w-5 h-5 text-gw-green" />
+                <span className="text-sm font-medium text-gw-gray-600 dark:text-gw-gray-400">
+                  번역 예시
+                </span>
               </div>
-              {/* Notification UI Mockup */}
-              <div className="bg-zinc-100 dark:bg-zinc-800/50 rounded-xl p-4 md:min-w-[280px]">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#00a63e]/20 flex items-center justify-center shrink-0">
-                    <span className="text-[#00a63e] text-sm">🔔</span>
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium">TSLA 새 뉴스</p>
-                    <p className="text-xs text-zinc-500 mt-0.5">
-                      테슬라, 유럽 판매량 전월 대비 15% 증가
-                    </p>
-                  </div>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs text-gw-gray-500 mb-1">원문</p>
+                  <p className="text-sm text-gw-gray-600 dark:text-gw-gray-400 italic">
+                    &quot;NVIDIA&apos;s datacenter revenue exceeded
+                    expectations, driven by strong AI chip demand...&quot;
+                  </p>
                 </div>
+                <div className="border-t border-gw-gray-200 dark:border-gw-gray-700 pt-4">
+                  <p className="text-xs text-gw-gray-500 mb-1">번역</p>
+                  <p className="text-sm text-gw-black dark:text-white font-medium">
+                    &quot;NVIDIA의 데이터센터 매출이 예상치를 상회했습니다. AI
+                    칩 수요 강세가 주요 원인입니다...&quot;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 기능 3: 이메일 리포트 */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div>
+              <span className="text-sm font-medium text-gw-green mb-4 block">
+                03 — 매일 아침 리포트
+              </span>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gw-black dark:text-white">
+                출근 전 5분,
+                <br />
+                어젯밤 뉴스 확인
+              </h3>
+              <p className="text-gw-gray-600 dark:text-gw-gray-400 leading-relaxed">
+                관심 종목을 등록하면 매일 아침 이메일로 AI 분석 리포트가
+                도착합니다. 바쁜 아침에도 놓치는 뉴스 없이 챙길 수 있어요.
+              </p>
+            </div>
+
+            {/* 알림 미니 데모 */}
+            <div className="p-6 bg-gw-gray-50 dark:bg-gw-gray-900 border border-gw-gray-200 dark:border-gw-gray-700 rounded-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gw-green/10 flex items-center justify-center">
+                  <Bell className="w-5 h-5 text-gw-green" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-gw-black dark:text-white">
+                    Green Wire
+                  </p>
+                  <p className="text-xs text-gw-gray-500">오전 7:00</p>
+                </div>
+              </div>
+              <div className="bg-white dark:bg-gw-gray-800 border border-gw-gray-200 dark:border-gw-gray-700 rounded-lg p-4 space-y-3">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-sm font-bold text-gw-black dark:text-white">
+                    NVDA AI 분석 리포트
+                  </p>
+                  <p className="text-xs text-gw-gray-500">20개 뉴스</p>
+                </div>
+                {/* 감성 분석 미니 */}
+                <div className="flex gap-2 text-xs">
+                  <span className="flex items-center gap-1 px-2 py-1 bg-gw-green/10 text-gw-green rounded">
+                    <TrendingUp className="w-3 h-3" />
+                    긍정 14
+                  </span>
+                  <span className="flex items-center gap-1 px-2 py-1 bg-gw-gray-100 dark:bg-gw-gray-700 text-gw-gray-500 rounded">
+                    <Minus className="w-3 h-3" />
+                    중립 4
+                  </span>
+                  <span className="flex items-center gap-1 px-2 py-1 bg-red-50 dark:bg-red-900/20 text-red-500 rounded">
+                    <TrendingDown className="w-3 h-3" />
+                    부정 2
+                  </span>
+                </div>
+                {/* 핵심 요약 일부 */}
+                <p className="text-xs text-gw-gray-600 dark:text-gw-gray-400 leading-relaxed">
+                  데이터센터 매출 145억 달러로 사상 최고치 경신...
+                </p>
+                {/* 더 있다는 힌트 */}
+                <p className="text-xs text-gw-gray-400 pt-2 border-t border-gw-gray-100 dark:border-gw-gray-700">
+                  + 주가 영향 예측 · 경쟁사 분석 · 투자 권고
+                </p>
               </div>
             </div>
           </div>

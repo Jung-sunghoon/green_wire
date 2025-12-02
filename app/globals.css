@@ -8,6 +8,28 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
+  /* Green Wire 브랜드 컬러 (Green + Black) */
+  --color-gw-green: #00a63e;
+  --color-gw-green-light: #00c94a;
+  --color-gw-green-dark: #008a33;
+  --color-gw-black: #0a0a0a;
+  --color-gw-gray-900: #171717;
+  --color-gw-gray-800: #262626;
+  --color-gw-gray-700: #3f3f46;
+  --color-gw-gray-600: #525252;
+  --color-gw-gray-500: #737373;
+  --color-gw-gray-400: #a3a3a3;
+  --color-gw-gray-300: #d4d4d4;
+  --color-gw-gray-200: #e5e5e5;
+  --color-gw-gray-100: #f5f5f5;
+  --color-gw-gray-50: #fafafa;
+  --color-gw-white: #ffffff;
+  --color-gw-success: #00a63e;
+  --color-gw-danger: #ef4444;
+  --color-gw-warning: #f59e0b;
+
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -52,12 +74,34 @@
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
-  /* Green Wire 브랜드 컬러 */
+
+  /* Green Wire 브랜드 컬러 (Green + Black) */
   --gw-green: #00a63e;
   --gw-green-light: #00c94a;
   --gw-green-dark: #008a33;
-  --gw-glow: 0 0 20px rgba(0, 166, 62, 0.3);
-  --gw-glow-lg: 0 0 40px rgba(0, 166, 62, 0.4);
+
+  /* Black 테마 (모던, 젊은 느낌) */
+  --gw-black: #0a0a0a;
+  --gw-gray-900: #171717;
+  --gw-gray-800: #262626;
+  --gw-gray-700: #3f3f46;
+  --gw-gray-600: #525252;
+  --gw-gray-500: #737373;
+  --gw-gray-400: #a3a3a3;
+  --gw-gray-300: #d4d4d4;
+  --gw-gray-200: #e5e5e5;
+  --gw-gray-100: #f5f5f5;
+  --gw-gray-50: #fafafa;
+  --gw-white: #ffffff;
+
+  /* Semantic Colors */
+  --gw-success: #00a63e;
+  --gw-danger: #ef4444;
+  --gw-warning: #f59e0b;
+  --gw-neutral: #737373;
+
+  /* Pretendard 폰트 */
+  --font-pretendard: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
   /* WarmOrganic 색상 변수 (Sage Green + Sand Beige) */
   /* Sage Green (Primary) */
   --sage-50: #f8faf7;
@@ -197,6 +241,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-pretendard);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overscroll-behavior-y: contain;

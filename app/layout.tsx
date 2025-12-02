@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_KR, Caveat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Providers from "./providers";
 import Layout from "@/shared/components/Layout";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 
 // Inter 폰트 최적화 - 필요한 weight만 로드
 const inter = Inter({
@@ -80,7 +82,33 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning className={`${inter.variable} ${notoSansKR.variable} ${caveat.variable}`}>
-      <body className={`${inter.className} ${notoSansKR.className} antialiased`}>
+      <head>
+        {/* Pretendard 폰트 CDN */}
+        <link
+          rel="stylesheet"
+          as="style"
+          crossOrigin="anonymous"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+        {/* Google Analytics */}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
+      <body className="font-pretendard antialiased">
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

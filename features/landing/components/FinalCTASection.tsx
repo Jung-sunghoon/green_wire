@@ -1,30 +1,25 @@
-import Link from "next/link";
+import CTAButton from "./CTAButton";
 
 export default function FinalCTASection() {
   return (
-    <section className="py-16 md:py-24 px-6 relative">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,166,62,0.08)_0%,transparent_60%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(0,166,62,0.15)_0%,transparent_60%)]" />
-      <div className="max-w-3xl mx-auto text-center relative">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">
+    <section className="py-20 md:py-32 px-6 bg-gw-gray-50 dark:bg-gw-gray-900">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gw-black dark:text-white">
           지금 바로 시작하세요
         </h2>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8">
-          신용카드 없이, 7일간 무료로 사용해보세요
+        <p className="text-lg text-gw-gray-600 dark:text-gw-gray-400 mb-8">
+          무료로 시작하고, 내일 아침 첫 리포트를 받아보세요
         </p>
-        <Link
+        <CTAButton
           href="/register"
-          className="inline-block px-10 py-4 bg-[#00a63e] hover:bg-[#00c94a] text-white font-semibold rounded-lg shadow-[0_0_20px_rgba(0,166,62,0.25)] hover:shadow-[0_0_30px_rgba(0,166,62,0.4)] transition-all hover:-translate-y-0.5"
+          location="final"
+          className="inline-block px-10 py-4 bg-gw-green hover:bg-gw-green-light text-white font-semibold rounded-xl text-lg transition-colors"
+          ariaLabel="무료로 시작하기"
         >
           무료로 시작하기
-        </Link>
-        <p className="mt-8 text-sm text-zinc-500">
-          질문이 있으신가요?{" "}
-          <a
-            href="mailto:team@greenwire.com"
-            className="text-[#00a63e] hover:underline"
-          >
-            team@greenwire.com
-          </a>
+        </CTAButton>
+        <p className="mt-6 text-sm text-gw-gray-500">
+          신용카드 없이 시작 · 언제든 해지 가능
         </p>
       </div>
     </section>
